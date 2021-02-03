@@ -1,0 +1,257 @@
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+//font family
+$font-family-open-sans: 'Open Sans', sans-serif;
+//opacity
+$white-opacity-5: rgba(255, 255, 255, .5);
+$black-opacity-5: rgba(0, 0, 0, .5);
+
+//color
+$gray-color: #696969;
+$black-color: #333333;
+$white-color: #FFFFFF;
+$base-color: #23a535;
+$hover-color: rgba(245, 245, 245, .2);
+$btn-bg-color: #23a535;
+$primary-color:#23a535;
+$primary-color-hover: rgba(35, 165, 53, .3);
+$danger-color: #ec3636;
+$light-gray-color:#d5d5d5;
+
+
+//size
+$font-size-xs:12px;
+$font-size-small:14px;
+$font-size-medium:16px;
+$font-size-large:18px;
+$font-size-xl:28px;
+
+//background color
+$body-bg-color: #efefef;
+$card-bg-color: rgba(245, 245, 245, 9);
+$bg-light-gray :#efefef;
+
+
+* {
+    box-sizing: border-box;
+}
+html, body{
+    padding: 0;
+    margin: 0;
+}
+h1,h2,h3,h4,h5,h6,span,p,strong {
+    font-family: $font-family-open-sans;
+    margin: 0;
+    padding: 0;
+}
+page {
+    background: $white-color;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 0.5cm;
+    // box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    // border: 1px solid $gray-color;
+    &[size="A4"] {  
+        width: 21cm;
+        height: 29.7cm; 
+        &[layout="landscape"] {
+            width: 29.7cm;
+            height: 21cm;  
+        }
+    }
+
+    .pdf_template {
+        position: relative;
+        width: 100%;
+        .pdf_container {
+            display: grid;
+            grid-template-columns:  1fr 2fr;
+            grid-gap: 1px;
+            background-color: #333333;
+            .column {
+                width: 100%;
+                height: 100%;
+                padding: 25px 15px;
+                &.left {
+                    background-color: $white-color;   
+                    .user_info {
+                        .user_avatar {
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                        .user_name {
+                            font-size: $font-size-large;
+                            color: $black-color;
+                            font-weight:600;
+                            margin-top: 10px;
+                            line-height: 2;
+                        }
+                        .user_headline {
+                            font-size: $font-size-small;
+                            color: $gray-color;
+                        }
+                    }
+                    .profile {
+                        margin-top: 20px;
+                        .title {
+                            font-size: $font-size-medium;
+                        }
+                        .subtitle {
+                            margin: 0;
+                            font-size: $font-size-small;
+                            color: $gray-color;
+                            line-height: 2;
+                        }
+                        .bages {
+                            display: inline-block;
+                            padding: 5px;
+                            border-radius: 5px;
+                            background-color: $black-color;
+                            color: $white-color;
+                            font-size: $font-size-xs;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+                &.right {
+                    background-color: $white-color;
+                    .profile {
+                        &.contact {
+                            margin-top: 0;
+                        }
+                        margin-top: 20px;
+                        .title {
+                            font-size: $font-size-medium;
+                            font-weight: 400;
+                        }
+                        .content {
+                            font-size: $font-size-xs;
+                            color: $gray-color;
+                        }
+                        .timeline {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                            width: 100%;
+                            .timeline-item {
+                                position: relative;
+                                padding-left: 40px;
+                                margin-top: 10px;
+                                &:last-child {
+                                padding-bottom: 0;
+                                }
+                                .timeline-info{
+                                    span{
+                                      font-size: $font-size-small;
+                                      font-family: $font-family-open-sans;
+                                      color: $gray-color;
+                                    }
+                                }
+                                &:first-child {
+                                    .timeline-marker {
+                                        &:after {
+                                            top: 0;
+                                        }
+                                    }
+                                }
+                                .timeline-marker{
+                                    position: absolute;
+                                    top: 0; bottom: 0; left: 0;
+                                    width: 15px;
+                                    &:after {
+                                      content: "";
+                                      width: 2px;
+                                      background: $black-color;
+                                      display: block;
+                                      position: absolute;
+                                      top: -10px;
+                                      bottom: 0;
+                                      left: 0;
+                                      right: 0;
+                                      margin: 0 auto;
+                                    }
+                                    .timeline-item:last-child &:after {
+                                      content: none;
+                                    }
+                                }
+                                .timeline-content {
+                                    padding-bottom: 30px;
+                                    p:last-child {
+                                      margin-bottom: 0;
+                                    }
+                                    .timeline-content-title{
+                                      font-size: $font-size-medium;
+                                      font-weight: 400;
+                                      line-height: 2;
+                                      font-family: $font-family-open-sans;
+                                      color: $black-color;
+                                      margin: 0;
+                                    }
+                                    .timeline-content-subtitle{
+                                      font-size: 14px;
+                                      line-height: 1.5;
+                                      font-family: $font-family-open-sans;
+                                      color: $black-color;
+                                    }
+                                    .content-tag{
+                                        margin-top: 10px;
+                                        ul{
+                                          position: relative;
+                                          margin: 0 auto;
+                                          padding: 0;
+                                          li{
+                                            max-width: 100%;
+                                            display: inline-block;
+                                            align-items: center;
+                                            word-break: break-all;
+                                            padding: 5px;
+                                            background-color: $body-bg-color;
+                                            border-radius: 5px;
+                                            margin: 5px 10px 0 0;
+                                            vertical-align: top;
+                                            cursor: pointer;
+                                            color: $black-color;
+                                            .text{
+                                              font-size: 12px;
+                                              font-family: $font-family-open-sans;
+                                            }
+                                          }
+                                        }
+                                    }
+                                    .timeline-content-info{
+                                      margin-top: 10px;
+                                      padding: 10px;
+                                      background-color: $body-bg-color;
+                                      border-radius: 5px;
+                                      p{
+                                        font-size: $font-size-small;
+                                        font-family: $font-family-open-sans;
+                                        color: $gray-color;
+                                        line-height: 1.5;
+                                      }
+                                    }
+                                  }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+    body, page {
+      margin: 0;
+      box-shadow: 0;
+    }
+    page {page-break-after: always;}
+  }
